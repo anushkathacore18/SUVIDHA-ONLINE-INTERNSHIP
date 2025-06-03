@@ -1,590 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help & Support - Suvidha Foundation</title>
-    <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suvidha Foundation | Help & Support</title>
 
-        body {
-            background-color: #ffffff;
-            color: #333333;
-            line-height: 1.6;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  <style>
+    :root {
+      --mango-yellow: #ffc107;
+      --deep-yellow: #ffb300;
+      --light-yellow: #fffde7;
+      --white: #ffffff;
+      --text-dark: #2c2c2c;
+    }
 
-        a {
-            text-decoration: none;
-            color: #333;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        
-        header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background-color: var(--light-yellow);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
+    header {
+      background-color: var(--mango-yellow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+    header img {
+      height: 55px;
+    }
 
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            background-color: #FFCC00;
-            border-radius: 50%;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #ffffff;
-        }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #212121;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-        }
+    nav a:hover {
+      color: #000;
+    }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
+    .hero {
+      background: linear-gradient(to bottom, var(--mango-yellow), var(--light-yellow));
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-        .nav-links li {
-            margin-left: 30px;
-        }
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #212121;
+    }
 
-        .nav-links a {
-            position: relative;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
 
-        .nav-links a:hover {
-            color: #FFCC00;
-        }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-        .nav-links a.active {
-            color: #FFCC00;
-            font-weight: 600;
-        }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
 
-        .nav-links a.active::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: #FFCC00;
-        }
+    .content-box {
+      background-color: var(--white);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            cursor: pointer;
-        }
+    .faq details {
+      margin-bottom: 15px;
+      background-color: var(--mango-yellow);
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-        .menu-toggle span {
-            height: 3px;
-            width: 100%;
-            background-color: #333;
-            border-radius: 3px;
-        }
+    .faq summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-       
-        .hero {
-            background-color: #FFCC00;
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    .faq details:hover {
+      background-color: var(--deep-yellow);
+    }
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #333;
-        }
+    .contact-form button {
+      background-color: var(--mango-yellow);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
 
-        
-        .main-content {
-            margin: 50px 0;
-        }
+    .contact-form button:hover {
+      background-color: var(--deep-yellow);
+    }
 
-      
-        .faq-section {
-            margin-bottom: 60px;
-        }
+    .address-box {
+      background-color: var(--white);
+      border-left: 6px solid var(--deep-yellow);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
 
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #333;
-            text-align: center;
-            position: relative;
-        }
+    footer {
+      background-color: var(--mango-yellow);
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #eee;
+      font-size: 0.95rem;
+    }
 
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #FFCC00;
-            border-radius: 2px;
-        }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-in-out;
+    }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
 
-        .faq-item {
-            margin-bottom: 20px;
-            border: 1px solid #f0f0f0;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+    @media (max-width: 600px) {
+      header nav {
+        display: none;
+      }
 
-        .faq-question {
-            padding: 15px 20px;
-            font-weight: 600;
-            background-color: #f9f9f9;
-            cursor: pointer;
-            position: relative;
-            border-left: 4px solid #FFCC00;
-        }
-
-        .faq-answer {
-            padding: 20px;
-            background-color: #ffffff;
-            border-top: 1px solid #f0f0f0;
-        }
-
-       
-        .support-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #FFCC00;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .btn {
-            background-color: #FFCC00;
-            color: #333;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #e6b800;
-        }
-
-        .support-info {
-            flex: 1;
-            min-width: 300px;
-            background-color: #f9f9f9;
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #FFCC00;
-        }
-
-        .support-info h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .info-item {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .info-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #FFCC00;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        .info-text {
-            flex-grow: 1;
-        }
-
-        .info-text h4 {
-            margin-bottom: 5px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 50px 0 20px;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #FFCC00;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #FFCC00;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid #444;
-            color: #aaa;
-        }
-
-       
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: #fff;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                pointer-events: none;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-links li {
-                margin: 10px 0;
-            }
-
-            .hero {
-                padding: 40px 0;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 1.2rem;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-        }
-    </style>
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-   
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <div class="logo-img">SF</div>
-                <div class="logo-text">Suvidha Foundation</div>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#" class="active">Help & Support</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Donate</a></li>
-            </ul>
-        </div>
-    </header>
 
-   
-    <section class="hero">
-        <div class="container">
-            <h1>Help & Support</h1>
-            <p>Have questions or need assistance? We're here to help you make a difference.</p>
-        </div>
-    </section>
+  <header>
+    <img src="logo.png" alt="Suvidha Foundation Logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <main class="main-content">
-        <div class="container">
-           
-            <section class="faq-section">
-                <h2 class="section-title">Frequently Asked Questions</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">How can I volunteer with Suvidha Foundation?</div>
-                        <div class="faq-answer">
-                            <p>You can volunteer with us by filling out the volunteer form on our website. We offer various volunteering opportunities including teaching, organizing events, administrative support, and more. Once we receive your application, our volunteer coordinator will contact you to discuss available opportunities that match your skills and interests.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">How is my donation used?</div>
-                        <div class="faq-answer">
-                            <p>Your generous donations directly support our community programs. Approximately 85% of all donations go directly to program services, with the remaining 15% used for administrative costs and fundraising efforts. We maintain full transparency and publish annual reports detailing how funds are allocated across our various initiatives.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Is my donation tax-deductible?</div>
-                        <div class="faq-answer">
-                            <p>Yes, Suvidha Foundation is a registered 501(c)(3) non-profit organization, and all donations are tax-deductible to the extent allowed by law. You will receive a tax receipt for your donation that you can use for tax purposes.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">Can I sponsor a specific project or program?</div>
-                        <div class="faq-answer">
-                            <p>Absolutely! We offer various sponsorship opportunities for our educational programs, healthcare initiatives, and community development projects. You can specify which program you'd like to support when making your donation, or contact our team to discuss a custom sponsorship arrangement.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  <section id="home" class="hero fade-in">
+    <h1>Suvidha Help & Support Center</h1>
+    <p>Support portal for Students, Employers, and TPOs</p>
+  </section>
 
-        
-            <section class="support-section">
-                <div class="contact-form">
-                    <h2 class="section-title">Contact Us</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Enter your full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="Enter your email address" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" placeholder="Enter subject">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" placeholder="Enter your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
-                </div>
-                <div class="support-info">
-                    <h3>Support Information</h3>
-                    <div class="info-item">
-                        <div class="info-icon">✉</div>
-                        <div class="info-text">
-                            <h4>Email Us</h4>
-                            <p>support@suvidhafoundation.org</p>
-                            <p>info@suvidhafoundation.org</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">📞</div>
-                        <div class="info-text">
-                            <h4>Call Us</h4>
-                            <p>+1 (555) 123-4567</p>
-                            <p>Monday-Friday: 9am-5pm</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div class="info-text">
-                            <h4>Visit Us</h4>
-                            <p>123 Community Way</p>
-                            <p>suvidha foundation</p>
-                            <p>Mumbai </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
+  <section id="about" class="fade-in">
+    <h2 class="section-title">About the Portal</h2>
+    <div class="content-box">
+      <p>
+        Welcome to the official Suvidha Help & Support Portal. This platform is designed to streamline assistance for all users interacting with the Suvidha recruitment ecosystem.
+      </p>
+      <br />
+      <ul>
+        <li><strong>Students:</strong> Get recruitment-related help, application guidance, and interview support.</li>
+        <li><strong>Employers:</strong> Find answers about partnerships, posting roles, and onboarding talent.</li>
+        <li><strong>TPOs:</strong> Connect your institution with Suvidha and monitor student placements.</li>
+      </ul>
+    </div>
 
-   
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-column">
-                <h3>Suvidha Foundation</h3>
-                <p>Empowering communities through education, healthcare, and sustainable development since 2005.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Programs</a></li>
-                    <li><a href="#">Get Involved</a></li>
-                    <li><a href="#">Donate</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Support</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Help & Support</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 Suvidha Foundation. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <div class="address-box">
+      <p><strong>SUVIDHA FOUNDATION (Suvidha Mahila Mandal)</strong><br>
+        REGISTRATION NO. MH/568/1995<br>
+        F. NO. 12669<br>
+        REGISTERED UNDER THE SOCIETY ACT OF 1860<br><br>
+        H.NO. 1951, W.N.4, KHAPERKHEDA,<br>
+        SAONER, NAGPUR, MAHARASHTRA, INDIA - 441102</p>
+    </div>
+  </section>
 
-    <script>
-       
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+  <section id="faq" class="fade-in">
+    <h2 class="section-title">Frequently Asked Questions</h2>
 
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
+    <div class="content-box">
+      <h3>For Students</h3>
+      <div class="faq">
+        <details>
+          <summary>How do I apply for recruitment?</summary>
+          <p>Use the student login to access open roles and submit your application.</p>
+        </details>
+        <details>
+          <summary>Will I get recruitment updates via email?</summary>
+          <p>Yes, all communication will be sent to your registered email ID.</p>
+        </details>
+      </div>
+    </div>
 
-       
-        const faqQuestions = document.querySelectorAll('.faq-question');
+    <div class="content-box">
+      <h3>For Employers</h3>
+      <div class="faq">
+        <details>
+          <summary>How do I post roles for students?</summary>
+          <p>Register as an employer and navigate to your dashboard to post job opportunities.</p>
+        </details>
+        <details>
+          <summary>Do you support virtual hiring?</summary>
+          <p>Yes, we facilitate both virtual and offline recruitment processes.</p>
+        </details>
+      </div>
+    </div>
 
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                
-                if (answer.style.display === 'none' || answer.style.display === '') {
-                    answer.style.display = 'block';
-                } else {
-                    answer.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    <div class="content-box">
+      <h3>For TPOs (Training & Placement Officers)</h3>
+      <div class="faq">
+        <details>
+          <summary>How can I link my college with Suvidha?</summary>
+          <p>Register via the TPO login and await verification by our team.</p>
+        </details>
+        <details>
+          <summary>Can I track student selections?</summary>
+          <p>Yes, you will get access to analytics and student application status.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2 class="section-title">Need Help? Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Describe your issue..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Suvidha Foundation | support@suvidhafoundation.org | All rights reserved.
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Animate once
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>

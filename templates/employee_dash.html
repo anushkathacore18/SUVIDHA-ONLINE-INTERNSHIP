@@ -14,15 +14,15 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #fef9e7 0%, #f7dc6f 100%);
+      background: linear-gradient(135deg, #FDFDFD 0%, #F8F8F8 100%);
       min-height: 100vh;
-      color: #2c3e50;
+      color: #212121;
     }
 
     /* Header Styles */
     header {
-      background: linear-gradient(135deg, #f4d03f 0%, #f1c40f 100%);
-      box-shadow: 0 4px 20px rgba(241, 196, 15, 0.3);
+      background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -47,12 +47,12 @@
     .logo-icon {
       width: 45px;
       height: 45px;
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: linear-gradient(135deg, #333333 0%, #212121 100%);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f4d03f;
+      color: #FFD700;
       font-size: 1.5rem;
       font-weight: bold;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -61,8 +61,8 @@
     .logo {
       font-size: 2rem;
       font-weight: bold;
-      color: #2c3e50;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      color: #212121;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       letter-spacing: 2px;
     }
 
@@ -83,7 +83,7 @@
 
     .main-nav a {
       text-decoration: none;
-      color: #2c3e50;
+      color: #212121;
       font-weight: 600;
       padding: 0.7rem 1.5rem;
       border-radius: 25px;
@@ -97,8 +97,8 @@
 
     .main-nav a:hover,
     .main-nav a.active {
-      background: rgba(255, 255, 255, 0.3);
-      color: #1a1a1a;
+      background: #FFD700;
+      color: #212121;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     }
@@ -121,26 +121,26 @@
       cursor: pointer;
       padding: 0.5rem;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: #FFF8E1;
       transition: all 0.3s ease;
     }
 
     .notifications:hover {
-      background: rgba(255, 255, 255, 0.3);
+     background: #FFD700;
       transform: scale(1.1);
     }
 
     .notifications i {
       font-size: 1.2rem;
-      color: #2c3e50;
+      color: #212121;
     }
 
     .notification-badge {
       position: absolute;
       top: -5px;
       right: -5px;
-      background: #e74c3c;
-      color: white;
+      background: #FFD700;
+      color: #212121;
       border-radius: 50%;
       width: 20px;
       height: 20px;
@@ -178,14 +178,19 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: linear-gradient(135deg, #333333 0%, #212121 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #f4d03f;
+      color: #FFD700;
       font-weight: bold;
       font-size: 1.1rem;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .profile-avatar:hover {
+      box-shadow: 0 4px 18px #FFD20044;
+      transform: scale(1.08);
     }
 
     .profile-info {
@@ -196,20 +201,20 @@
 
     .profile-name {
       font-weight: 600;
-      color: #2c3e50;
+      color: #212121;
       font-size: 0.9rem;
       line-height: 1.2;
     }
 
     .profile-role {
       font-size: 0.75rem;
-      color: #7f8c8d;
+      color: #E0E0E0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .dropdown-arrow {
-      color: #2c3e50;
+      color: #212121;
       font-size: 0.8rem;
       transition: transform 0.3s ease;
     }
@@ -222,7 +227,7 @@
       position: absolute;
       top: 100%;
       right: 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: #FDFDFD;
       backdrop-filter: blur(15px);
       border-radius: 15px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -232,7 +237,7 @@
       visibility: hidden;
       transform: translateY(-10px);
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid #E0E0E0;
     }
 
     .profile-dropdown.active .dropdown-menu {
@@ -246,15 +251,15 @@
       align-items: center;
       gap: 0.8rem;
       padding: 0.8rem 1.5rem;
-      color: #2c3e50;
+      color: #212121;
       text-decoration: none;
       transition: all 0.3s ease;
       font-weight: 500;
     }
 
     .dropdown-item:hover {
-      background: linear-gradient(135deg, #fef9e7 0%, #fff3cd 100%);
-      color: #1a1a1a;
+      background: #FFF8E1;
+      color: #FFD700;
     }
 
     .dropdown-item i {
@@ -265,7 +270,7 @@
 
     .dropdown-divider {
       height: 1px;
-      background: rgba(0,0,0,0.1);
+      background: #E0E0E0;
       margin: 0.5rem 0;
     }
 
@@ -273,7 +278,7 @@
       display: none;
       cursor: pointer;
       font-size: 1.5rem;
-      color: #2c3e50;
+      color: #212121;
       padding: 0.5rem;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.2);
@@ -305,21 +310,22 @@
       text-align: center;
       margin-bottom: 3rem;
       padding: 2rem;
-      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      background: #FFF8E1;
       border-radius: 15px;
-      border-left: 5px solid #f39c12;
+      border-left: 5px solid #FFD700;
+      animation: fadeInUp 1s 0.2s cubic-bezier(0.23, 1, 0.32, 1) both;
     }
 
     .greeting h1 {
       font-size: 2.5rem;
-      color: #2c3e50;
+      color: #212121;
       margin-bottom: 0.5rem;
       font-weight: 700;
     }
 
     .greeting p {
       font-size: 1.2rem;
-      color: #7f8c8d;
+      color: #333333;
       font-weight: 400;
     }
 
@@ -332,43 +338,42 @@
     }
 
     .card {
-      background: linear-gradient(135deg, #ffffff 0%, #fef9e7 100%);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-      border: 2px solid #f4d03f;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #f1c40f, #f39c12);
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(33,33,33,0.06);
+      border-left: 5px solid #FFD700;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      padding: 1.7rem 1.2rem 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 110px;
+      transition: box-shadow 0.2s;
+      opacity: 0;
+      animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(241, 196, 15, 0.2);
+      box-shadow: 0 8px 32px rgba(33,33,33,0.13);
+      transform: translateY(-4px) scale(1.025);
     }
 
     .card h3 {
-      color: #2c3e50;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 0.95rem;
+      color: #757575;
       font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
     }
 
     .card p {
-      color: #7f8c8d;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 700;
+      color: #212121;
+      margin-bottom: 0.2rem;
     }
 
     /* Students Section */
@@ -411,10 +416,11 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      background: linear-gradient(135deg, #ffffff 0%, #fef9e7 100%);
+      background: #FFFFFF;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      animation: fadeInUp 1s 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
     }
 
     th, td {
@@ -601,26 +607,68 @@
 
     /* Animation for cards */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    body {
+      animation: fadeIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .greeting {
+      animation: fadeInUp 1s 0.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    .stats .card {
+      opacity: 0;
+      animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    .stats .card:nth-child(1) { animation-delay: 0.3s; }
+    .stats .card:nth-child(2) { animation-delay: 0.45s; }
+    .stats .card:nth-child(3) { animation-delay: 0.6s; }
+    .section-header {
+      animation: slideInLeft 1s 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    table {
+      animation: fadeInUp 1s 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
+    }
+    tbody tr {
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    tbody tr:hover {
+      box-shadow: 0 4px 18px rgba(33,33,33,0.08);
+      transform: scale(1.01) translateY(-2px);
+      z-index: 2;
+      position: relative;
+    }
     .card {
-      animation: fadeInUp 0.6s ease forwards;
+      transition: box-shadow 0.3s, transform 0.3s;
     }
-
-    .card:nth-child(2) {
-      animation-delay: 0.1s;
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(33,33,33,0.13);
+      transform: translateY(-4px) scale(1.025);
     }
-
-    .card:nth-child(3) {
-      animation-delay: 0.2s;
+    .profile-avatar {
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .profile-avatar:hover {
+      box-shadow: 0 4px 18px #FFD20044;
+      transform: scale(1.08);
+    }
+    .main-nav a {
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+    .main-nav a:hover, .main-nav a.active {
+      transform: scale(1.07) translateY(-2px);
     }
   </style>
 </head>

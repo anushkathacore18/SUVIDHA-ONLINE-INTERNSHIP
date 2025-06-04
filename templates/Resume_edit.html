@@ -1,16 +1,16 @@
-<!-----Chnage----><!---Working-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder - Suvidha</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='Resume_edit.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <meta name="theme-color" content="#f4b400">
 </head>
-<body>
+<body style="background: #fffbe6;">
     <header>
         <div class="logo">SUVIDHA</div>
         <nav class="main-nav">
@@ -41,6 +41,9 @@
                         <div class="profile-photo-section">
                             <div class="photo-upload-container">
                                 <div class="photo-preview" id="photo-preview">
+                                    <div class="loading-state" style="display: none;">
+                                        <div class="spinner-small"></div>
+                                    </div>
                                     {% if user.profile and user.profile.profile_photo %}
                                         <img src="{{ url_for('static', filename=user.profile.profile_photo) }}" alt="Profile Photo">
                                     {% else %}
@@ -57,64 +60,109 @@
                         </div>
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="full-name">Full Name *</label>
-                                <input type="text" id="full-name" name="full_name" value="{{ user.profile.full_name if user.profile else '' }}" readonly required>
+                                <div class="input-wrapper">
+                                    <input type="text" id="full-name" name="full_name" value="{{ user.profile.full_name if user.profile else '' }}" readonly required>
+                                    <label for="full-name">Full Name *</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email *</label>
-                                <input type="email" id="email" name="email" value="{{ user.profile.email if user.profile else user.email }}" readonly required>
+                                <div class="input-wrapper">
+                                    <input type="email" id="email" name="email" value="{{ user.profile.email if user.profile else user.email }}" readonly required>
+                                    <label for="email">Email *</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" name="phone" value="{{ user.profile.phone if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="tel" id="phone" name="phone" value="{{ user.profile.phone if user.profile else '' }}" readonly>
+                                    <label for="phone">Phone</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group full-width">
-                                <label for="address">Address</label>
-                                <textarea id="address" name="address" readonly>{{ user.profile.address if user.profile else '' }}</textarea>
+                                <div class="input-wrapper">
+                                    <textarea id="address" name="address" readonly>{{ user.profile.address if user.profile else '' }}</textarea>
+                                    <label for="address">Address</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="city">City</label>
-                                <input type="text" id="city" name="city" value="{{ user.profile.city if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="city" name="city" value="{{ user.profile.city if user.profile else '' }}" readonly>
+                                    <label for="city">City</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="state">State</label>
-                                <input type="text" id="state" name="state" value="{{ user.profile.state if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="state" name="state" value="{{ user.profile.state if user.profile else '' }}" readonly>
+                                    <label for="state">State</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="pincode">Pincode</label>
-                                <input type="text" id="pincode" name="pincode" value="{{ user.profile.pincode if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="pincode" name="pincode" value="{{ user.profile.pincode if user.profile else '' }}" readonly>
+                                    <label for="pincode">Pincode</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="country">Country</label>
-                                <input type="text" id="country" name="country" value="{{ user.profile.country if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="country" name="country" value="{{ user.profile.country if user.profile else '' }}" readonly>
+                                    <label for="country">Country</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="college">College/University</label>
-                                <input type="text" id="college" name="college" value="{{ user.profile.college if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="college" name="college" value="{{ user.profile.college if user.profile else '' }}" readonly>
+                                    <label for="college">College/University</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="branch">Branch/Department</label>
-                                <input type="text" id="branch" name="branch" value="{{ user.profile.branch if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="branch" name="branch" value="{{ user.profile.branch if user.profile else '' }}" readonly>
+                                    <label for="branch">Branch/Department</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="course-year">Course Year</label>
-                                <input type="text" id="course-year" name="course_year" value="{{ user.profile.course_year if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="text" id="course-year" name="course_year" value="{{ user.profile.course_year if user.profile else '' }}" readonly>
+                                    <label for="course-year">Course Year</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="graduation-year">Graduation Year</label>
-                                <input type="number" id="graduation-year" name="graduation_year" value="{{ user.profile.graduation_year if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="number" id="graduation-year" name="graduation_year" value="{{ user.profile.graduation_year if user.profile else '' }}" readonly>
+                                    <label for="graduation-year">Graduation Year</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="linkedin-url">LinkedIn Profile</label>
-                                <input type="url" id="linkedin-url" name="linkedin_url" value="{{ user.profile.linkedin_url if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="url" id="linkedin-url" name="linkedin_url" value="{{ user.profile.linkedin_url if user.profile else '' }}" readonly>
+                                    <label for="linkedin-url">LinkedIn Profile</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="github-url">GitHub Profile</label>
-                                <input type="url" id="github-url" name="github_url" value="{{ user.profile.github_url if user.profile else '' }}" readonly>
+                                <div class="input-wrapper">
+                                    <input type="url" id="github-url" name="github_url" value="{{ user.profile.github_url if user.profile else '' }}" readonly>
+                                    <label for="github-url">GitHub Profile</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                             <div class="form-group full-width">
-                                <label for="about">About Yourself</label>
-                                <textarea id="about" name="about" readonly>{{ user.profile.about if user.profile else '' }}</textarea>
+                                <div class="input-wrapper">
+                                    <textarea id="about" name="about" readonly>{{ user.profile.about if user.profile else '' }}</textarea>
+                                    <label for="about">About Yourself</label>
+                                    <span class="focus-border"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,7 +177,10 @@
                     <div class="section-content" id="skills">
                         <div class="form-group">
                             <label for="skill-input">Add Skills</label>
-                            <input type="text" id="skill-input" placeholder="Type a skill and press Enter" readonly>
+                            <div class="input-wrapper">
+                                <input type="text" id="skill-input" placeholder="Type a skill and press Enter" readonly>
+                                <span class="focus-border"></span>
+                            </div>
                         </div>
                         <div id="skills-container" class="skills-container">
                             {% for skill in skills %}
@@ -158,31 +209,49 @@
                                     <div class="form-grid">
                                         <div class="form-group">
                                             <label>Project Name</label>
-                                            <input type="text" name="projects[][project_name]" value="{{ project.project_name }}" readonly required>
+                                            <div class="input-wrapper">
+                                                <input type="text" name="projects[][project_name]" value="{{ project.project_name }}" readonly required>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Project Type</label>
-                                            <select name="projects[][project_type]" disabled required>
-                                                <option value="academic" {% if project.project_type == 'academic' %}selected{% endif %}>Academic</option>
-                                                <option value="personal" {% if project.project_type == 'personal' %}selected{% endif %}>Personal</option>
-                                                <option value="professional" {% if project.project_type == 'professional' %}selected{% endif %}>Professional</option>
-                                            </select>
+                                            <div class="select-wrapper">
+                                                <select name="projects[][project_type]" disabled required>
+                                                    <option value="academic" {% if project.project_type == 'academic' %}selected{% endif %}>Academic</option>
+                                                    <option value="personal" {% if project.project_type == 'personal' %}selected{% endif %}>Personal</option>
+                                                    <option value="professional" {% if project.project_type == 'professional' %}selected{% endif %}>Professional</option>
+                                                </select>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Duration</label>
                                             <div class="duration-inputs">
-                                                <input type="month" name="projects[][duration_start]" value="{{ project.duration.split('-')[0] if project.duration else '' }}" readonly required>
+                                                <div class="input-wrapper">
+                                                    <input type="month" name="projects[][duration_start]" value="{{ project.duration.split('-')[0] if project.duration else '' }}" readonly required>
+                                                    <span class="focus-border"></span>
+                                                </div>
                                                 <span>to</span>
-                                                <input type="month" name="projects[][duration_end]" value="{{ project.duration.split('-')[1] if project.duration else '' }}" readonly required>
+                                                <div class="input-wrapper">
+                                                    <input type="month" name="projects[][duration_end]" value="{{ project.duration.split('-')[1] if project.duration else '' }}" readonly required>
+                                                    <span class="focus-border"></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>GitHub Link</label>
-                                            <input type="url" name="projects[][github_link]" value="{{ project.github_link }}" readonly>
+                                            <div class="input-wrapper">
+                                                <input type="url" name="projects[][github_link]" value="{{ project.github_link }}" readonly>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group full-width">
                                             <label>Description</label>
-                                            <textarea name="projects[][description]" rows="3" readonly required>{{ project.description }}</textarea>
+                                            <div class="input-wrapper">
+                                                <textarea name="projects[][description]" rows="3" readonly required>{{ project.description }}</textarea>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <button type="button" class="remove-btn" onclick="removeCard(this)" style="display: none;">
@@ -210,30 +279,49 @@
                                     <div class="form-grid">
                                         <div class="form-group">
                                             <label>Certification Name</label>
-                                            <input type="text" name="certifications[][certification_name]" value="{{ cert.certification_name }}" readonly required>
+                                            <div class="input-wrapper">
+                                                <input type="text" name="certifications[][certification_name]" value="{{ cert.certification_name }}" readonly required>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Issuing Organization</label>
-                                            <input type="text" name="certifications[][issuer]" value="{{ cert.issuer }}" readonly required>
+                                            <div class="input-wrapper">
+                                                <input type="text" name="certifications[][issuer]" value="{{ cert.issuer }}" readonly required>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Duration</label>
                                             <div class="duration-inputs">
-                                                <input type="month" name="certifications[][duration_start]" value="{{ cert.duration.split('-')[0] if cert.duration else '' }}" readonly required>
+                                                <div class="input-wrapper">
+                                                    <input type="month" name="certifications[][duration_start]" value="{{ cert.duration.split('-')[0] if cert.duration else '' }}" readonly required>
+                                                    <span class="focus-border"></span>
+                                                </div>
                                                 <span>to</span>
-                                                <input type="month" name="certifications[][duration_end]" value="{{ cert.duration.split('-')[1] if cert.duration else '' }}" readonly required>
+                                                <div class="input-wrapper">
+                                                    <input type="month" name="certifications[][duration_end]" value="{{ cert.duration.split('-')[1] if cert.duration else '' }}" readonly required>
+                                                    <span class="focus-border"></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Credential ID</label>
-                                            <input type="text" name="certifications[][credential_id]" value="{{ cert.credential_id }}" readonly>
+                                            <div class="input-wrapper">
+                                                <input type="text" name="certifications[][credential_id]" value="{{ cert.credential_id }}" readonly>
+                                                <span class="focus-border"></span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Certificate File</label>
-                                            <input type="file" name="certificate_files[]" accept=".pdf,.doc,.docx" disabled>
-                                            {% if cert.filename %}
-                                                <p class="note">Current file: {{ cert.filename }}</p>
-                                            {% endif %}
+                                            <div class="file-upload-wrapper">
+                                                <input type="file" name="certificate_files[]" accept=".pdf,.doc,.docx" disabled>
+                                                <div class="file-upload-info">
+                                                    {% if cert.filename %}
+                                                        <p class="note">Current file: {{ cert.filename }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <button type="button" class="remove-btn" onclick="removeCard(this)" style="display: none;">
@@ -254,10 +342,14 @@
                     <div class="section-content" id="resume-upload">
                         <div class="form-group">
                             <label for="resume-file">Upload Resume (PDF, DOC, DOCX)</label>
-                            <input type="file" id="resume-file" name="resume" accept=".pdf,.doc,.docx">
-                            {% if user.profile and user.profile.resume_path %}
-                                <p class="note">Current resume: {{ user.profile.resume_path }}</p>
-                            {% endif %}
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="resume-file" name="resume" accept=".pdf,.doc,.docx">
+                                <div class="file-upload-info">
+                                    {% if user.profile and user.profile.resume_path %}
+                                        <p class="note">Current resume: {{ user.profile.resume_path }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,6 +368,18 @@
             <p>© 2025 Suvidha (Scholiverse Educare Private Limited). All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Processing...</p>
+    </div>
+
+    <div id="notification" class="notification" style="display: none;">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="notification-message"></span>
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='Resume_edit.js') }}"></script>
 </body>
